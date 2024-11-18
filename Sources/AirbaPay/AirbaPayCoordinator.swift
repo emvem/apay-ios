@@ -111,10 +111,18 @@ class AirbaPayCoordinator: UIViewController {
         DispatchQueue.main.async {
 
             if self.navigation == nil {
+//                airba pay sdk 2.1.2 navigation fix
+                
+//                if let window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first {
+//
+//                    self.navigation = UINavigationController(rootViewController: self)
+//                    window.rootViewController = self.navigation
+//                }
+                
                 if let window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first {
-
-                    self.navigation = UINavigationController(rootViewController: self)
-                    window.rootViewController = self.navigation
+                   let navigation = UINavigationController(rootViewController: self)
+                   navigation.modalPresentationStyle = .overFullScreen
+                   window.rootViewController?.present(navigation, animated: true)
                 }
             }
 

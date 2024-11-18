@@ -120,9 +120,10 @@ class AirbaPayCoordinator: UIViewController {
 //                }
                 
                 if let window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first {
-                   let navigation = UINavigationController(rootViewController: self)
-                   navigation.modalPresentationStyle = .overFullScreen
-                   window.rootViewController?.present(navigation, animated: true)
+                    let navigation = UINavigationController(rootViewController: self)
+                    self.navigation = navigation
+                    navigation.modalPresentationStyle = .overFullScreen
+                    window.rootViewController?.present(navigation, animated: true)
                 }
             }
 
